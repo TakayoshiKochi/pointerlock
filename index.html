@@ -239,8 +239,9 @@
           active sandboxing flag set</a> does not have the <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/origin-0.html#sandboxed-pointer-lock-browsing-context-flag">
           sandboxed pointer lock browsing context flag</a> set.
 
-          <p>Pointer lock must succeed only if the <a>target</a> is
-          <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/infrastructure.html#in-a-document">in</a>
+          <p>Pointer lock must succeed only if the <a>target</a>'s
+          <a href="https://dom.spec.whatwg.org/#concept-shadow-including-root">shadow-including root</a> is
+          <a href="https://dom.spec.whatwg.org/#in-a-shadow-including-document">in</a>
           the
           <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/browsers.html#active-document">active document</a>
           of a
@@ -254,15 +255,15 @@
 
           <p>If a user has exited pointer lock via the <a>default unlock user
           gesture</a>, or pointer lock has not previously been entered for this
-          document, an event generated as a result of an
-          <a>engagement gesture</a> must be received by the document before
+          shadow-including document, an event generated as a result of an
+          <a>engagement gesture</a> must be received by the shadow-including document before
           <a>requestPointerLock</a> will succeed.</p>
 
           <p class="note">
-            This ensures a user can leave a
-            document that constantly attempts to lock the pointer. The document
+            This ensures a user can leave a shadow-including
+            document that constantly attempts to lock the pointer. The shadow-including document
             will be blocked from locking upon initial navigation or re-acquiring
-            lock unless the user re-engages directly with the document.<br><br>
+            lock unless the user re-engages directly with the shadow-including document.<br><br>
 
             Conversely, if pointer lock is exited via <a>exitPointerLock</a>
             no <a>engagement gesture</a> is required to reenter pointer lock. This enables
@@ -275,12 +276,12 @@
             for a subsequent requestPointerLock.
           </p>
 
-          <p>If any element (including this one) in the same document
+          <p>If any element (including this one) in the same shadow-including document
           is already locked (or pending lock) the pointer
           lock <a>target</a> must be updated to this element and a
           <a>pointerlockchange</a> event sent.</p>
 
-          <p>If any element in another document is already locked the request
+          <p>If any element in another shadow-including document is already locked the request
           must fail and a <a>pointerlockerror</a> event be sent.</p>
 
           <p>Once in the locked state the <a>user agent</a> must fire all relevant
@@ -322,21 +323,12 @@
           for <a>pointerlockerror</a> events.</p>
         </dd>
 
-        <dt>readonly attribute Element? pointerLockElement</dt>
-        <dd>
-          <dfn title="pointerLockElement"></dfn>
-
-          <p>Returns the element set as the <a>target</a> for mouse events
-          while the pointer is locked. Null if lock is pending, pointer is
-          unlocked, or if the target is in another document.</p>
-        </dd>
-
         <dt>void exitPointerLock ()</dt>
         <dd>
           <dfn title="exitPointerLock"></dfn>
 
           <p>Initiates an exit from pointer lock state if currently locked
-          to a target in this document,
+          to a target in this shadow-including document,
           and sends a <a>pointerlockchange</a> event when the lock state
           has been exited.</p>
 
@@ -345,6 +337,24 @@
           location that is reported in <code>screenX</code>, <code>screenY</code>,
           when the pointer is locked).</p>
         </dd>
+      </dl>
+    </section>
+
+    <section>
+      <h2>Extensions to the <a>DocumentOrShadowRoot</a> Mixin</h2>
+
+      <dl title='partial interface DocumentOrShadowRoot' class='idl'>
+         <dt>readonly attribute Element? pointerLockElement</dt>
+         <dd>
+           <dfn title="pointerLockElement"></dfn>
+
+           <p>Returns the result of the
+           <a href="https://w3c.github.io/webcomponents/spec/shadow/#dfn-retargeting-algorithm">retargeting algorithm</a>
+           with the <a href="http://dom.spec.whatwg.org/#context-object">context object</a>
+           and the element set as the <a>target</a> for mouse events
+           while the pointer is locked. Null if lock is pending, pointer is
+           unlocked, or if the target is in another shadow-including document.</p>
+         </dd>
       </dl>
     </section>
 
@@ -430,8 +440,8 @@
       [[FULLSCREEN]].</p>
 
       <p>Pointer lock must be exited if the
-      <a>target</a> is removed from its document, or the <a>user agent</a>,
-      window, or tab loses focus. Moving focus between elements of
+      <a>target</a> is removed from its shadow-including document, or the <a>user agent</a>,
+      window, or tab loses focus. Moving focus between elements whose shadow-including root is in
       <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/browsers.html#active-document">active documents</a>,
       including between
       <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/browsers.html#browsing-context">browsing contexts</a>,
