@@ -240,9 +240,8 @@
           sandboxed pointer lock browsing context flag</a> set.
 
           <p>Pointer lock must succeed only if the <a>target</a>'s
-          <a href="https://dom.spec.whatwg.org/#concept-shadow-including-root">shadow-including root</a> is
-          <a href="https://dom.spec.whatwg.org/#in-a-shadow-including-document">in</a>
-          the
+          <a href="https://dom.spec.whatwg.org/#concept-shadow-including-root">shadow-including root</a>
+          is the
           <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/browsers.html#active-document">active document</a>
           of a
           <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/browsers.html#browsing-context">browsing context</a>
@@ -255,7 +254,7 @@
 
           <p>If a user has exited pointer lock via the <a>default unlock user
           gesture</a>, or pointer lock has not previously been entered for this
-          shadow-including document, an event generated as a result of an
+          document, an event generated as a result of an
           <a>engagement gesture</a> must be received by the shadow-including document before
           <a>requestPointerLock</a> will succeed.</p>
 
