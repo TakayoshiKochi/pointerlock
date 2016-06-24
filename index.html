@@ -255,14 +255,14 @@
           <p>If a user has exited pointer lock via the <a>default unlock user
           gesture</a>, or pointer lock has not previously been entered for this
           document, an event generated as a result of an
-          <a>engagement gesture</a> must be received by the shadow-including document before
+          <a>engagement gesture</a> must be received by the document before
           <a>requestPointerLock</a> will succeed.</p>
 
           <p class="note">
-            This ensures a user can leave a shadow-including
-            document that constantly attempts to lock the pointer. The shadow-including document
+            This ensures a user can leave a
+            document that constantly attempts to lock the pointer. The document
             will be blocked from locking upon initial navigation or re-acquiring
-            lock unless the user re-engages directly with the shadow-including document.<br><br>
+            lock unless the user re-engages directly with the document.<br><br>
 
             Conversely, if pointer lock is exited via <a>exitPointerLock</a>
             no <a>engagement gesture</a> is required to reenter pointer lock. This enables
@@ -439,8 +439,8 @@
       [[FULLSCREEN]].</p>
 
       <p>Pointer lock must be exited if the
-      <a>target</a> is removed from its shadow-including document, or the <a>user agent</a>,
-      window, or tab loses focus. Moving focus between elements whose shadow-including root is in
+      <a>target</a> is removed from its document, or the <a>user agent</a>,
+      window, or tab loses focus. Moving focus between elements whose shadow-including root is
       <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/browsers.html#active-document">active documents</a>,
       including between
       <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/browsers.html#browsing-context">browsing contexts</a>,
