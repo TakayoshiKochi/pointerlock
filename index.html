@@ -280,7 +280,8 @@
           lock <a>target</a> must be updated to this element and a
           <a>pointerlockchange</a> event sent.</p>
 
-          <p>If any element in another shadow-including document is already locked the request
+          <p>If any element whose <a href="https://dom.spec.whatwg.org/#concept-shadow-including-root">shadow-including root</a> is a different document
+          is already locked the request
           must fail and a <a>pointerlockerror</a> event be sent.</p>
 
           <p>Once in the locked state the <a>user agent</a> must fire all relevant
@@ -327,7 +328,7 @@
           <dfn title="exitPointerLock"></dfn>
 
           <p>Initiates an exit from pointer lock state if currently locked
-          to a target whose shadow-including root is this document,
+          to a target whose <a href="https://dom.spec.whatwg.org/#concept-shadow-including-root">shadow-including root</a> is this document,
           and sends a <a>pointerlockchange</a> event when the lock state
           has been exited.</p>
 
@@ -352,7 +353,7 @@
            with the <a href="http://dom.spec.whatwg.org/#context-object">context object</a>
            and the element set as the <a>target</a> for mouse events
            while the pointer is locked. Null if lock is pending, pointer is
-           unlocked, or if the target is in another shadow-including document.</p>
+           unlocked, or if the target's <a href="https://dom.spec.whatwg.org/#concept-shadow-including-root">shadow-including root</a> is a different document.</p>
          </dd>
       </dl>
     </section>
@@ -439,7 +440,7 @@
       [[FULLSCREEN]].</p>
 
       <p>Pointer lock must be exited if the
-      <a>target</a> is removed and is no longer in a shadow-including document,
+      <a>target</a> is <a href="https://html.spec.whatwg.org/#node-is-disconnected">disconnected</a>,
       or the <a>user agent</a>,
       window, or tab loses focus. Moving focus between elements of
       <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/browsers.html#active-document">active documents</a>,
