@@ -348,12 +348,31 @@
          <dd>
            <dfn title="pointerLockElement"></dfn>
 
-           <p>Returns the result of the
-           <a href="https://w3c.github.io/webcomponents/spec/shadow/#dfn-retargeting-algorithm">retargeting algorithm</a>
-           with the <a href="http://dom.spec.whatwg.org/#context-object">context object</a>
-           and the element set as the <a>target</a> for mouse events
-           while the pointer is locked. Null if lock is pending, pointer is
-           unlocked, or if the target's <a href="https://dom.spec.whatwg.org/#concept-shadow-including-root">shadow-including root</a> is a different document.</p>
+	   <p>If the element, which is set as the target for mouse events while the pointer is
+	   locked, is a
+           <a href="https://dom.spec.whatwg.org/#concept-shadow-including-descendant">shadow-including descendant</a> of the
+           <a href="http://dom.spec.whatwg.org/#context-object">context object</a>,
+	   return the result of the following algorithm:
+	   <dl>
+	     <dt>Input</dt>
+	     <dd><var>TARGET</var>, the target for mouse events while the pointer is locked
+	     <dt>Output</dt>
+	     <dd><var>ADJUSTED-TARGET</var>
+	   </dl>
+	   <ol>
+	     <li>If TARGET is in the same tree, let ADJUSTED-TARGET be TARGET</li>
+	     <li>Otherwise: let ADJUSTED-TARGET be a shadow host which is a
+	       <a href="https://dom.spec.whatwg.org/#concept-shadow-including-ancestor">shadow-including ancestor</a>
+	       of TARGET, and is in the same tree as the
+	       <a href="http://dom.spec.whatwg.org/#context-object">context object</a>.
+	   </ol>
+	   </p>
+
+           <p>Returns null if lock is pending, if pointer is unlocked,
+           or if the target is not a
+           <a href="https://dom.spec.whatwg.org/#concept-shadow-including-descendant">shadow-including descendant</a> of the
+           <a href="http://dom.spec.whatwg.org/#context-object">context object</a>.
+	   </p>
          </dd>
       </dl>
     </section>
