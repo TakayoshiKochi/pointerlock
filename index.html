@@ -348,31 +348,29 @@
          <dd>
            <dfn title="pointerLockElement"></dfn>
 
-	   <p>If the element, which is set as the target for mouse events while the pointer is
-	   locked, is a
+           <p>If the element, which is set as the target for mouse events while the pointer is
+           locked, is a
            <a href="https://dom.spec.whatwg.org/#concept-shadow-including-descendant">shadow-including descendant</a> of the
            <a href="http://dom.spec.whatwg.org/#context-object">context object</a>,
-	   return the result of the following algorithm:
-	   <dl>
-	     <dt>Input</dt>
-	     <dd><var>TARGET</var>, the target for mouse events while the pointer is locked
-	     <dt>Output</dt>
-	     <dd><var>ADJUSTED-TARGET</var>
-	   </dl>
-	   <ol>
-	     <li>If TARGET is in the same tree, let ADJUSTED-TARGET be TARGET</li>
-	     <li>Otherwise: let ADJUSTED-TARGET be a shadow host which is a
-	       <a href="https://dom.spec.whatwg.org/#concept-shadow-including-ancestor">shadow-including ancestor</a>
-	       of TARGET, and is in the same tree as the
-	       <a href="http://dom.spec.whatwg.org/#context-object">context object</a>.
-	   </ol>
-	   </p>
+           return the result of the following algorithm:
+           <ol>
+             <li>Let <var>target</var> be the target for mouse events while the pointer is locked.
+             <li>If <var>target</var> is in the same tree as the
+               <a href="http://dom.spec.whatwg.org/#context-object">context object</a>,
+               let <var>adjusted-target</var> be <var>target</var></li>
+             <li>Otherwise: let <var>adjusted-target</var> be the shadow host which is a
+               <a href="https://dom.spec.whatwg.org/#concept-shadow-including-ancestor">shadow-including ancestor</a> of
+               <var>target</var> and is in the same tree as the
+               <a href="http://dom.spec.whatwg.org/#context-object">context object</a>.</li>
+             <li>Return <var>adjusted-target</var>
+           </ol>
+           </p>
 
            <p>Returns null if lock is pending, if pointer is unlocked,
            or if the target is not a
            <a href="https://dom.spec.whatwg.org/#concept-shadow-including-descendant">shadow-including descendant</a> of the
            <a href="http://dom.spec.whatwg.org/#context-object">context object</a>.
-	   </p>
+           </p>
          </dd>
       </dl>
     </section>
@@ -459,7 +457,7 @@
       [[FULLSCREEN]].</p>
 
       <p>Pointer lock must be exited if the
-      <a>target</a> is <a href="https://html.spec.whatwg.org/#node-is-disconnected">disconnected</a>,
+      <a>target</a> <a href="https://html.spec.whatwg.org/#node-is-disconnected">is disconnected</a>,
       or the <a>user agent</a>,
       window, or tab loses focus. Moving focus between elements of
       <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/browsers.html#active-document">active documents</a>,
