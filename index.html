@@ -275,12 +275,14 @@
             for a subsequent requestPointerLock.
           </p>
 
-          <p>If any element (including this one) in the same shadow-including document
-          is already locked (or pending lock) the pointer
-          lock <a>target</a> must be updated to this element and a
-          <a>pointerlockchange</a> event sent.</p>
+          <p>If any element (including this one), whose
+          <a href="https://dom.spec.whatwg.org/#concept-shadow-including-root">shadow-including root</a>
+	  is same as this element's
+          <a href="https://dom.spec.whatwg.org/#concept-shadow-including-root">shadow-including root</a>,
+          is already locked (or pending lock) the pointer lock <a>target</a> must be updated
+          to this element and a <a>pointerlockchange</a> event sent.</p>
 
-          <p>If any element whose <a href="https://dom.spec.whatwg.org/#concept-shadow-including-root">shadow-including root</a> is a different document
+          <p>If any element, whose <a href="https://dom.spec.whatwg.org/#concept-shadow-including-root">shadow-including root</a> is a different document,
           is already locked the request
           must fail and a <a>pointerlockerror</a> event be sent.</p>
 
