@@ -360,10 +360,11 @@
              <li>If <var>target</var> is in the same tree as the
                <a href="http://dom.spec.whatwg.org/#context-object">context object</a>,
                let <var>adjusted-target</var> be <var>target</var></li>
-             <li>Otherwise: let <var>adjusted-target</var> be the shadow host which is the nearest
-               <a href="https://dom.spec.whatwg.org/#concept-shadow-including-ancestor">shadow-including ancestor</a> of
-               <var>target</var>, and which is in the same tree as the
-               <a href="http://dom.spec.whatwg.org/#context-object">context object</a>.</li>
+             <li>Otherwise: let <var>adjusted-target</var> be the shadow host of <var>target</var> and repeat the following substeps:
+	       <ul>
+		 <li>If it is in the same tree as the <a href="http://dom.spec.whatwg.org/#context-object">context object</a>, terminate this substeps.</li>
+		 <li>Let <var>adjusted-target</var> be the shadow host of <var>adjusted-target</var>.</li>
+	       </ul>
              <li>Return <var>adjusted-target</var>
            </ol>
            </p>
