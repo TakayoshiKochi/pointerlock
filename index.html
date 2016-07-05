@@ -350,25 +350,13 @@
          <dd>
            <dfn title="pointerLockElement"></dfn>
 
-           <p>If the element, which is set as the target for mouse events while the pointer is
-           locked, is a
-           <a href="https://dom.spec.whatwg.org/#concept-shadow-including-descendant">shadow-including descendant</a> of the
-           <a href="http://dom.spec.whatwg.org/#context-object">context object</a>,
-           return the result of the following algorithm:
-           <ol>
-             <li>Let <var>target</var> be the target for mouse events while the pointer is locked.
-             <li>If <var>target</var> is in the same tree as the
-               <a href="http://dom.spec.whatwg.org/#context-object">context object</a>,
-               let <var>adjusted-target</var> be <var>target</var></li>
-             <li>Otherwise: let <var>adjusted-target</var> be the <var>target</var>'s root's host and repeat the following substeps:
-	       <ul>
-		 <li>If <var>adjusted-target</var> is in the same tree as the <a href="http://dom.spec.whatwg.org/#context-object">context object</a>, terminate this substeps.</li>
-		 <li>Let <var>adjusted-target</var> be <var>adjusted-target</var>'s root's host.</li>
-	       </ul>
-             <li>Return <var>adjusted-target</var>
-           </ol>
-           </p>
-
+           <p>Returns the result of the
+           <a href="https://https://w3c.github.io/webcomponents/spec/shadow/#dfn-retargeting-algorithm">retargeting algorithm</a>
+           with the
+           <a href="http://dom.spec.whatwg.org/#context-object">context object</a> and the element
+           set as the target for mouse events while the pointer is locked, if the result and the
+           <a href="http://dom.spec.whatwg.org/#context-object">context object</a> are in the
+           same tree.</p>
            <p>Returns null if lock is pending, if pointer is unlocked,
            or if the target is not a
            <a href="https://dom.spec.whatwg.org/#concept-shadow-including-descendant">shadow-including descendant</a> of the
