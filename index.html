@@ -350,13 +350,17 @@
          <dd>
            <dfn title="pointerLockElement"></dfn>
 
-           <p>Returns the result of the
+           <p>While the pointer is locked, and
+	   the element set as the target for mouse events is a
+           <a href="https://dom.spec.whatwg.org/#concept-shadow-including-descendant">shadow-including descendant</a> of the
+           <a href="http://dom.spec.whatwg.org/#context-object">context object</a>,
+	   returns the result of the
            <a href="https://https://w3c.github.io/webcomponents/spec/shadow/#dfn-retargeting-algorithm">retargeting algorithm</a>
            with the
-           <a href="http://dom.spec.whatwg.org/#context-object">context object</a> and the element
-           set as the target for mouse events while the pointer is locked, if the result and the
+           <a href="http://dom.spec.whatwg.org/#context-object">context object</a> and
+	   the element as input, if the result and the
            <a href="http://dom.spec.whatwg.org/#context-object">context object</a> are in the
-           same tree.</p>
+           same tree, otherwise returns null.</p>
            <p>Returns null if lock is pending, if pointer is unlocked,
            or if the target is not a
            <a href="https://dom.spec.whatwg.org/#concept-shadow-including-descendant">shadow-including descendant</a> of the
