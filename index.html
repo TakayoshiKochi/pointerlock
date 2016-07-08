@@ -367,6 +367,25 @@
           <a href="https://dom.spec.whatwg.org/#concept-shadow-including-descendant">shadow-including descendant</a>
           of the <a href="https://dom.spec.whatwg.org/#context-object">context object</a>.
           </p>
+          <pre class='example highlight' id="example-retarget-pointerlock">
+              &lt;body&gt;
+                &lt;div id=&quot;host1&quot;&gt;
+                  #ShadowRoot (id=&quot;root1&quot;)
+                    &lt;canvas id=&quot;canvas1&quot;&gt;&lt;/canvas&gt;
+                &lt;/div&gt;
+                &lt;div id=&quot;host2&quot;&gt;
+                  #ShadowRoot (id=&quot;root2&quot;)
+                    &lt;canvas id=&quot;canvas2&quot;&gt;&lt;/canvas&gt;
+                &lt;/div&gt;
+              &lt;/body&gt;
+          </pre>
+          <p>If <code>canvas1</code> is the target, <code>document.pointerLockElement</code>
+          returns <code>host1</code>, and <code>root1.pointerLockElement</code> returns
+          <code>canvas1</code>. The result of
+          <a href="https://w3c.github.io/webcomponents/spec/shadow/#dfn-retargeting-algorithm">retargeting algorithm</a>
+          with <code>root2</code> and <code>canvas1</code> as input is <code>host1</code>, but
+          as <code>host1</code> is not in the same tree as <code>root2</code>, null will be
+          returned for <code>root2.pointerLockElement</code>.</p>
         </dd>
       </dl>
     </section>
