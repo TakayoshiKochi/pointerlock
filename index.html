@@ -347,27 +347,27 @@
       <h2>Extensions to the <a>DocumentOrShadowRoot</a> Mixin</h2>
 
       <dl title='partial interface DocumentOrShadowRoot' class='idl'>
-         <dt>readonly attribute Element? pointerLockElement</dt>
-         <dd>
-           <dfn title="pointerLockElement"></dfn>
+        <dt>readonly attribute Element? pointerLockElement</dt>
+        <dd>
+          <dfn title="pointerLockElement"></dfn>
 
-           <p>While the pointer is locked, and
-           the element set as the target for mouse events is a
-           <a href="https://dom.spec.whatwg.org/#concept-shadow-including-descendant">shadow-including descendant</a>
-           of the
-           <a href="https://dom.spec.whatwg.org/#context-object">context object</a>,
-           returns the result of the
-           <a href="https://w3c.github.io/webcomponents/spec/shadow/#dfn-retargeting-algorithm">retargeting algorithm</a>
-           with the <a href="https://dom.spec.whatwg.org/#context-object">context object</a> and
-           the element as input, if the result and the
-           <a href="https://dom.spec.whatwg.org/#context-object">context object</a> are in the
-           same tree, otherwise returns null.</p>
-           <p>Returns null if lock is pending, if pointer is unlocked,
-           or if the target is not a
-           <a href="https://dom.spec.whatwg.org/#concept-shadow-including-descendant">shadow-including descendant</a>
-            of the <a href="https://dom.spec.whatwg.org/#context-object">context object</a>.
-           </p>
-         </dd>
+          <p>While the pointer is locked, and
+          the element set as the target for mouse events is a
+          <a href="https://dom.spec.whatwg.org/#concept-shadow-including-descendant">shadow-including descendant</a>
+          of the
+          <a href="https://dom.spec.whatwg.org/#context-object">context object</a>,
+          returns the result of the
+          <a href="https://w3c.github.io/webcomponents/spec/shadow/#dfn-retargeting-algorithm">retargeting algorithm</a>
+          with the <a href="https://dom.spec.whatwg.org/#context-object">context object</a> and
+          the element as input, if the result and the
+          <a href="https://dom.spec.whatwg.org/#context-object">context object</a> are in the
+          same tree, otherwise returns null.</p>
+          <p>Returns null if lock is pending, if pointer is unlocked,
+          or if the target is not a
+          <a href="https://dom.spec.whatwg.org/#concept-shadow-including-descendant">shadow-including descendant</a>
+          of the <a href="https://dom.spec.whatwg.org/#context-object">context object</a>.
+          </p>
+        </dd>
       </dl>
     </section>
 
