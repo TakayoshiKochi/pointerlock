@@ -277,13 +277,14 @@
 
           <p>If any element (including this one), whose
           <a href="https://dom.spec.whatwg.org/#concept-shadow-including-root">shadow-including root</a>
-	  is same as this element's
+          is same as this element's
           <a href="https://dom.spec.whatwg.org/#concept-shadow-including-root">shadow-including root</a>,
           is already locked (or pending lock) the pointer lock <a>target</a> must be updated
           to this element and a <a>pointerlockchange</a> event sent.</p>
 
-          <p>If any element, whose <a href="https://dom.spec.whatwg.org/#concept-shadow-including-root">shadow-including root</a> is a different document,
-          is already locked the request
+          <p>If any element, whose
+          <a href="https://dom.spec.whatwg.org/#concept-shadow-including-root">shadow-including root</a>
+          is a different document, is already locked the request
           must fail and a <a>pointerlockerror</a> event be sent.</p>
 
           <p>Once in the locked state the <a>user agent</a> must fire all relevant
@@ -330,8 +331,8 @@
           <dfn title="exitPointerLock"></dfn>
 
           <p>Initiates an exit from pointer lock state if currently locked
-          to a target whose <a href="https://dom.spec.whatwg.org/#concept-shadow-including-root">shadow-including root</a> is this document,
-          and sends a <a>pointerlockchange</a> event when the lock state
+          to a target whose <a href="https://dom.spec.whatwg.org/#concept-shadow-including-root">shadow-including root</a>
+          is this document, and sends a <a>pointerlockchange</a> event when the lock state
           has been exited.</p>
 
           <p>The system mouse cursor must be displayed again and positioned at
@@ -351,20 +352,20 @@
            <dfn title="pointerLockElement"></dfn>
 
            <p>While the pointer is locked, and
-	   the element set as the target for mouse events is a
-           <a href="https://dom.spec.whatwg.org/#concept-shadow-including-descendant">shadow-including descendant</a> of the
+           the element set as the target for mouse events is a
+           <a href="https://dom.spec.whatwg.org/#concept-shadow-including-descendant">shadow-including descendant</a>
+           of the
            <a href="http://dom.spec.whatwg.org/#context-object">context object</a>,
-	   returns the result of the
+           returns the result of the
            <a href="https://https://w3c.github.io/webcomponents/spec/shadow/#dfn-retargeting-algorithm">retargeting algorithm</a>
-           with the
-           <a href="http://dom.spec.whatwg.org/#context-object">context object</a> and
-	   the element as input, if the result and the
+           with the <a href="http://dom.spec.whatwg.org/#context-object">context object</a> and
+           the element as input, if the result and the
            <a href="http://dom.spec.whatwg.org/#context-object">context object</a> are in the
            same tree, otherwise returns null.</p>
            <p>Returns null if lock is pending, if pointer is unlocked,
            or if the target is not a
-           <a href="https://dom.spec.whatwg.org/#concept-shadow-including-descendant">shadow-including descendant</a> of the
-           <a href="http://dom.spec.whatwg.org/#context-object">context object</a>.
+           <a href="https://dom.spec.whatwg.org/#concept-shadow-including-descendant">shadow-including descendant</a>
+            of the <a href="http://dom.spec.whatwg.org/#context-object">context object</a>.
            </p>
          </dd>
       </dl>
@@ -451,8 +452,8 @@
       the unlock gesture also match any used to exit fullscreen
       [[FULLSCREEN]].</p>
 
-      <p>Pointer lock must be exited if the
-      <a>target</a> <a href="https://html.spec.whatwg.org/#node-is-disconnected">is disconnected</a>,
+      <p>Pointer lock must be exited if the <a>target</a>
+      <a href="https://html.spec.whatwg.org/#node-is-disconnected">is disconnected</a>,
       or the <a>user agent</a>,
       window, or tab loses focus. Moving focus between elements of
       <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/browsers.html#active-document">active documents</a>,
