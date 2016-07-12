@@ -374,15 +374,14 @@
           </pre>
           <p>Note: the example uses fictional <code>shadow-root</code> element to denote a
           <a href="https://dom.spec.whatwg.org/#concept-shadow-root">shadow root</a> instance.</p>
-          <p>If <code>canvas#canvas1</code> is the target,
-          <code>document.pointerLockElement</code> returns <code>div#host1</code>, and
-          <code>root1.pointerLockElement</code> returns <code>canvas#canvas1</code>.
+          <p>If <code>#canvas1</code> is the target,
+          <code>document.pointerLockElement</code> returns <code>#host1</code>, and
+          <code>root1.pointerLockElement</code> returns <code>#canvas1</code>.
           The result of
           <a href="https://w3c.github.io/webcomponents/spec/shadow/#dfn-retargeting-algorithm">retargeting algorithm</a>
-          with <code>shadow-root#root2</code> and <code>canvas#canvas1</code> as input is
-          <code>div#host1</code>, but as <code>div#host1</code> is not in the same tree as
-          <code>shadow-root#root2</code>, null will be returned for
-          <code>root2.pointerLockElement</code>.</p>
+          with <code>#root2</code> and <code>#canvas1</code> as input is
+          <code>#host1</code>, but as <code>#host1</code> is not in the same tree as
+          <code>#root2</code>, null will be returned for <code>root2.pointerLockElement</code>.</p>
         </dd>
       </dl>
     </section>
